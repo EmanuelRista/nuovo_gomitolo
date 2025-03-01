@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Gomitolo APS - 2025</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navigazione */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #2a68b3, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Gomitolo */
+        .gomitolo {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: url('./images/logo.png') no-repeat center;
+    background-size: contain;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+
+        /* Sezioni */
+        section {
+            padding: 5rem 2rem;
+        }
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .service-card {
+            width: 300px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            transform: rotate(-2deg);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+        }
+        .service-card h2 {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c2c2c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Servizi</a></li>
+            <li><a href="#about">Chi Siamo</a></li>
+            <li><a href="#contact">Contatti</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Il Gomitolo</h1>
+            <p>Trova il filo della tua serenità</p>
+        </div>
+        <!-- <div class="gomitolo" style="top: 10%; left: 20%;"></div>
+        <div class="gomitolo" style="bottom: 15%; right: 25%;"></div> -->
+        <div class="gomitolo" style="top: 30%; right: 15%;"></div>
+    </section>
+
+    <section id="services">
+        <h2>Servizi</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h2>Psicoterapia</h2>
+                <p>Supporto individuale e di gruppo per tutte le età.</p>
+            </div>
+            <div class="service-card" style="transform: rotate(3deg);">
+                <h2>Logopedia</h2>
+                <p>Aiuto per disturbi del linguaggio e della comunicazione.</p>
+            </div>
+            <div class="service-card" style="transform: rotate(-1deg);">
+                <h2>Neuropsicomotricità</h2>
+                <p>Sviluppo motorio e cognitivo per bambini.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Chi Siamo</h2>
+        <p>Siamo un’équipe multidisciplinare di professionisti dedicati al benessere psicologico e sociale, con sedi a Venaria Reale.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contatti</h2>
+        <p>Email: info@ilgomitoloaps.it | Tel: 123-456-7890</p>
+    </section>
+
+    <footer>
+        <p>© 2025 Il Gomitolo APS | Promuoviamo il benessere dal cuore di Venaria</p>
+    </footer>
+
+    <script>
+        // Smooth Scroll per la navigazione
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Animazione su scroll per le card
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            document.querySelectorAll('.service-card').forEach(card => {
+                const cardPos = card.getBoundingClientRect().top;
+                if (cardPos < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'rotate(0deg) translateY(0)';
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(50px)';
+                }
+            });
+        });
+
+        // Inizializzazione opacità card
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+        });
+
+        // Interattività del gomitolo (es. cambia dimensione al click)
+        const gomitolo = document.querySelector('.gomitolo');
+        gomitolo.addEventListener('click', () => {
+            gomitolo.style.transition = 'transform 0.5s';
+            gomitolo.style.transform = 'translateX(-50%) scale(1.2)';
+            setTimeout(() => {
+                gomitolo.style.transform = 'translateX(-50%) scale(1)';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
