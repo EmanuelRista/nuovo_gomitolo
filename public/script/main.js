@@ -159,28 +159,31 @@ let databaseTeamItems;
 
 // Funzione per aggiornare la navbar
 function updateNavbar() {
-  Object.keys(defaultNavItems).forEach((id) => {
-    const element = document.getElementById(id);
+  databaseNavItems.forEach((item) => {
+    const element = document.getElementById(item.element_id);
     if (element) {
-      element.textContent =
-        databaseNavItems && databaseNavItems[id]
-          ? databaseNavItems[id]
-          : defaultNavItems[id];
+      element.textContent = item.voce_menu;
     }
   });
 }
 
 // Funzione per aggiornare la sezione hero
 function updateHero() {
-  Object.keys(defaultHeroItems).forEach((id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.textContent =
-        databaseHeroItems && databaseHeroItems[id]
-          ? databaseHeroItems[id]
-          : defaultHeroItems[id];
-    }
-  });
+  const titleElement = document.getElementById("hero-title");
+  const subtitleElement = document.getElementById("hero-subtitle");
+  if (titleElement) {
+    titleElement.textContent =
+      databaseHeroItems && databaseHeroItems.title
+        ? databaseHeroItems.title
+        : defaultHeroItems["hero-title"];
+  }
+
+  if (subtitleElement) {
+    subtitleElement.textContent =
+      databaseHeroItems && databaseHeroItems.subtitle
+        ? databaseHeroItems.subtitle
+        : defaultHeroItems["hero-subtitle"];
+  }
 }
 
 // Funzione per aggiornare la sezione services
@@ -188,10 +191,7 @@ function updateServices() {
   // Aggiorna il titolo principale
   const titleElement = document.getElementById("services-title");
   if (titleElement) {
-    titleElement.textContent =
-      databaseServicesItems && databaseServicesItems["services-title"]
-        ? databaseServicesItems["services-title"]
-        : defaultServicesItems["services-title"];
+    titleElement.textContent = defaultServicesItems["services-title"];
   }
 
   // Aggiorna le card
@@ -201,10 +201,9 @@ function updateServices() {
     grid.innerHTML = "";
 
     // Scegli le card dal database o default
-    const cards =
-      databaseServicesItems && databaseServicesItems["cards"]
-        ? databaseServicesItems["cards"]
-        : defaultServicesItems["cards"];
+    const cards = databaseServicesItems
+      ? databaseServicesItems
+      : defaultServicesItems["cards"];
 
     // Crea dinamicamente ogni card
     cards.forEach((cardData) => {
@@ -234,28 +233,40 @@ function updateServices() {
 
 // Funzione per aggiornare la sezione about
 function updateAbout() {
-  Object.keys(defaultAboutItems).forEach((id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.textContent =
-        databaseAboutItems && databaseAboutItems[id]
-          ? databaseAboutItems[id]
-          : defaultAboutItems[id];
-    }
-  });
+  const aboutTitleElement = document.getElementById("about-title");
+  const aboutContentElement = document.getElementById("about-content");
+  if (aboutTitleElement) {
+    aboutTitleElement.textContent =
+      databaseAboutItems && databaseAboutItems.title
+        ? databaseAboutItems.title
+        : defaultAboutItems["about-title"];
+  }
+
+  if (aboutContentElement) {
+    aboutContentElement.textContent =
+      databaseAboutItems && databaseAboutItems.content
+        ? databaseAboutItems.content
+        : defaultAboutItems["about-content"];
+  }
 }
 
 // Funzione per aggiornare la sezione mission
 function updateMission() {
-  Object.keys(defaultMissionItems).forEach((id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.textContent =
-        databaseMissionItems && databaseMissionItems[id]
-          ? databaseMissionItems[id]
-          : defaultMissionItems[id];
-    }
-  });
+  const missionTitleElement = document.getElementById("mission-title");
+  const missionContentElement = document.getElementById("mission-content");
+  if (missionTitleElement) {
+    missionTitleElement.textContent =
+      databaseMissionItems && databaseMissionItems.title
+        ? databaseMissionItems.title
+        : defaultMissionItems["mission-title"];
+  }
+
+  if (missionContentElement) {
+    missionContentElement.textContent =
+      databaseMissionItems && databaseMissionItems.content
+        ? databaseMissionItems.content
+        : defaultMissionItems["mission-content"];
+  }
 }
 
 // Funzione per aggiornare la sezione team
@@ -263,20 +274,17 @@ function updateTeam() {
   // Aggiorna il titolo principale
   const titleElement = document.getElementById("team-title");
   if (titleElement) {
-    titleElement.textContent =
-      databaseTeamItems && databaseTeamItems["team-title"]
-        ? databaseTeamItems["team-title"]
-        : defaultTeamItems["team-title"];
+    titleElement.textContent = defaultTeamItems["team-title"];
   }
 
   // Aggiorna le card
   const grid = document.getElementById("team-grid");
   if (grid) {
     grid.innerHTML = "";
-    const cards =
-      databaseTeamItems && databaseTeamItems["cards"]
-        ? databaseTeamItems["cards"]
-        : defaultTeamItems["cards"];
+
+    const cards = databaseTeamItems
+      ? databaseTeamItems
+      : defaultTeamItems.cards;
 
     cards.forEach((cardData) => {
       const card = document.createElement("div");
@@ -300,3 +308,34 @@ document.addEventListener("DOMContentLoaded", () => {
   updateMission();
   updateTeam();
 });
+
+const path = "http://localhost/nuovo_gomitolo/public/api/";
+
+async function fetchData() {
+  try {
+    const response = await fetch(path + "read.php");
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      databaseNavItems = data.menu;
+      databaseHeroItems = data.hero[0];
+      databaseServicesItems = data.servizi;
+      databaseAboutItems = data.chisiamo[0];
+      databaseMissionItems = data.cosafacciamo[0];
+      databaseTeamItems = data.team;
+
+      updateNavbar();
+      updateHero();
+      updateServices();
+      updateAbout();
+      updateMission();
+      updateTeam();
+    } else {
+      throw new Error("Errore HTTP: " + response.status);
+    }
+  } catch (error) {
+    console.error("Errore nella richiesta: " + error.message);
+  }
+}
+
+fetchData();

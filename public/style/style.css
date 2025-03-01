@@ -110,37 +110,36 @@ section {
 }
 
 /* About Section */
-#about {
-  text-align: center;
-}
+
 #about h2 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   color: #2a68b3;
   margin-bottom: 2rem;
+  text-align: center;
 }
 #about p {
   font-size: 1.2rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
+  text-align: justify;
 }
 
 /* Mission Section */
-#mission {
-  text-align: center;
-}
 #mission h2 {
   font-family: "Playfair Display", serif;
   font-size: 3rem;
   color: #2a68b3;
   margin-bottom: 2rem;
+  text-align: center;
 }
 #mission p {
   font-size: 1.2rem;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
+  text-align: justify;
 }
 
 /* Services Section */
@@ -179,7 +178,7 @@ section {
   background-size: cover;
   background-position: center;
 }
-.service-card h2 {
+.service-card h3 {
   color: #2a68b3;
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
@@ -187,6 +186,8 @@ section {
 .service-card p {
   font-size: 1rem;
   color: #d3d3d3;
+  text-align: justify;
+  line-height: 1.6;
 }
 
 /* Team Section */
