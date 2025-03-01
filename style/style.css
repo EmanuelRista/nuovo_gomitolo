@@ -1,0 +1,400 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Arial", sans-serif;
+  background: #1a1a1a;
+  color: #d3d3d3;
+  overflow-x: hidden;
+}
+
+/* Navigazione */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+nav a {
+  color: #d3d3d3;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #2a68b3;
+}
+
+/* Hero Section */
+#hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a68b3, #d3d3d3);
+  position: relative;
+  overflow: hidden;
+}
+.hero-content {
+  text-align: center;
+  z-index: 1;
+}
+.hero-content h1 {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+.hero-content p {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Gomitolo */
+.gomitolo {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: url("../images/logo.png") no-repeat center;
+  background-size: contain;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.gomitolo-animato {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: url("../images/logo_minimal.png") no-repeat center;
+  background-size: contain;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  animation: sway 8s ease-in-out infinite;
+}
+@keyframes sway {
+  0% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-50%) translateY(-10px) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(0deg);
+  }
+}
+
+/* Sezioni generiche */
+section {
+  padding: 5rem 2rem;
+  background: #1a1a1a;
+  color: #d3d3d3;
+}
+
+/* About Section */
+#about {
+  text-align: center;
+}
+#about h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  color: #2a68b3;
+  margin-bottom: 2rem;
+}
+#about p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+#mission {
+  text-align: center;
+}
+#mission h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  color: #2a68b3;
+  margin-bottom: 2rem;
+}
+#mission p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Services Section */
+#services {
+  text-align: center;
+}
+#services h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #2a68b3;
+}
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.service-card {
+  width: 300px;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(42, 104, 179, 0.5);
+}
+.service-card .service-image {
+  width: 100%;
+  height: 150px;
+  background: #d3d3d3;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-size: cover;
+  background-position: center;
+}
+.service-card h2 {
+  color: #2a68b3;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.service-card p {
+  font-size: 1rem;
+  color: #d3d3d3;
+}
+
+/* Team Section */
+#team {
+  text-align: center;
+}
+#team h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #2a68b3;
+}
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.team-card {
+  width: 250px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(42, 104, 179, 0.5);
+}
+.team-card .photo {
+  width: 100%;
+  height: 200px;
+  background: #d3d3d3;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  background-size: cover;
+  background-position: center;
+}
+.team-card h3 {
+  font-size: 1.5rem;
+  color: #d3d3d3;
+  margin-bottom: 0.5rem;
+}
+.team-card p {
+  font-size: 1.2rem;
+  color: #2a68b3;
+}
+
+/* Contact Section */
+#contact {
+  text-align: center;
+}
+#contact h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #2a68b3;
+}
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(42, 104, 179, 0.2);
+}
+.contact-form label {
+  display: block;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #d3d3d3;
+  margin-bottom: 0.5rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #2a68b3;
+  border-radius: 5px;
+  color: #d3d3d3;
+  font-size: 1rem;
+  font-family: "Arial", sans-serif;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #2a68b3;
+  box-shadow: 0 0 10px rgba(42, 104, 179, 0.5);
+}
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+.contact-form button {
+  background: #2a68b3;
+  color: #d3d3d3;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.contact-form button:hover {
+  background: #d3d3d3;
+  color: #1a1a1a;
+}
+
+/* Footer */
+.footer {
+  background: #1a1a1a; /* Sfondo scuro coerente con il body */
+  color: #d3d3d3;
+  padding: 3rem 2rem; /* Spaziatura generale, allineata con le sezioni */
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* Spazio tra sezioni interne */
+}
+
+.footer-logo {
+  text-align: center;
+  padding-bottom: 2rem; /* Spazio sotto il logo */
+}
+
+.footer-logo .navbar-brand {
+  color: #2a68b3; /* Blu del sito */
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-logo .navbar-brand:hover {
+  color: #ff6b6b; /* Rosa al hover */
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Spazio tra le colonne */
+  padding-bottom: 2rem; /* Spazio sotto la sezione info */
+}
+
+.footer-info-block {
+  flex: 1;
+  min-width: 250px; /* Larghezza minima per evitare schiacciamento */
+  text-align: center;
+}
+
+.footer-info-block .info {
+  margin-bottom: 1.5rem;
+}
+
+.footer-info-block i {
+  color: #2a68b3; /* Icone blu */
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.footer-info-block p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.footer-info-block iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  text-align: center;
+}
+
+.footer-social .social-links a {
+  color: #d3d3d3;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s;
+}
+
+.footer-social .social-links a:hover {
+  color: #2a68b3; /* Rosa al hover */
+}
+
+.footer .copyrights {
+  background: #2c2c2c; /* Sfondo più scuro per i copyright */
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.footer .copyrights p {
+  font-size: 1rem;
+  margin: 0;
+  width: 100%;
+}
+
+.footer .credits {
+  margin-top: 1rem;
+  width: 100%;
+}

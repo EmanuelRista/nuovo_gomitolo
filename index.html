@@ -4,205 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Il Gomitolo APS - 2025</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #1a1a1a;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Navigazione */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: #ff6b6b;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #2a68b3, #ffffff);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-content {
-            text-align: center;
-            z-index: 1;
-        }
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-        }
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        /* Gomitolo */
-        .gomitolo {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: url('./images/logo.png') no-repeat center;
-    background-size: contain;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-}
-
-
-        /* Sezioni */
-        section {
-            padding: 5rem 2rem;
-        }
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-        }
-        .service-card {
-            width: 300px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            transform: rotate(-2deg);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .service-card:hover {
-            transform: rotate(0deg) scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-        }
-        .service-card h2 {
-            color: #ff6b6b;
-            font-size: 1.8rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #2c2c2c;
-        }
-    </style>
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#services">Servizi</a></li>
-            <li><a href="#about">Chi Siamo</a></li>
-            <li><a href="#contact">Contatti</a></li>
+            <li><a href="#hero" id="nav-home"></a></li>
+            <li><a href="#about" id="nav-about"> </a></li>
+            <li><a href="#team" id="nav-team"></a></li>
+            <li><a href="#mission" id="nav-mission"> </a></li>
+            <li><a href="#services" id="nav-services"></a></li>
+            <li><a href="#contact" id="nav-contact"></a></li>
         </ul>
     </nav>
 
     <section id="hero">
         <div class="hero-content">
-            <h1>Il Gomitolo</h1>
-            <p>Trova il filo della tua serenità</p>
+            <h1 id="hero-title"></h1>
+            <p id="hero-subtitle"></p>
         </div>
-        <!-- <div class="gomitolo" style="top: 10%; left: 20%;"></div>
-        <div class="gomitolo" style="bottom: 15%; right: 25%;"></div> -->
+        <div class="gomitolo-animato" style="top: 15%; left: 15%; width: 150px; height: 150px; animation-delay: 0s;"></div>
+        <div class="gomitolo-animato" style="top: 20%; left: 75%; width: 200px; height: 200px; animation-delay: 2s;"></div>
+        <div class="gomitolo-animato" style="top: 70%; left: 80%; width: 100px; height: 100px; animation-delay: 4s;"></div>
+        <div class="gomitolo-animato" style="top: 80%; left: 20%; width: 100px; height: 100px; animation-delay: 5s;"></div>
+        <div class="gomitolo-animato" style="bottom: 30%; left: 40%; width: 250px; height: 250px; animation-delay: 0s;"></div>
         <div class="gomitolo" style="top: 30%; right: 15%;"></div>
     </section>
 
-    <section id="services">
-        <h2>Servizi</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h2>Psicoterapia</h2>
-                <p>Supporto individuale e di gruppo per tutte le età.</p>
-            </div>
-            <div class="service-card" style="transform: rotate(3deg);">
-                <h2>Logopedia</h2>
-                <p>Aiuto per disturbi del linguaggio e della comunicazione.</p>
-            </div>
-            <div class="service-card" style="transform: rotate(-1deg);">
-                <h2>Neuropsicomotricità</h2>
-                <p>Sviluppo motorio e cognitivo per bambini.</p>
-            </div>
-        </div>
+    <section id="about">
+        <h2 id="about-title"></h2>
+        <br>
+        <p id="about-content"></p>
     </section>
 
-    <section id="about">
-        <h2>Chi Siamo</h2>
-        <p>Siamo un’équipe multidisciplinare di professionisti dedicati al benessere psicologico e sociale, con sedi a Venaria Reale.</p>
+    <section id="team">
+        <h2 id="team-title"></h2>
+        <div class="team-grid" id="team-grid"></div>
+    </section>
+
+    <section id="mission">
+        <h2 id="mission-title"></h2>
+        <br>
+        <p id="mission-content"></p>
+    </section>
+
+    <section id="services">
+        <h2 id="services-title"></h2>
+        <div class="services-grid" id="services-grid"></div>
     </section>
 
     <section id="contact">
         <h2>Contatti</h2>
-        <p>Email: info@ilgomitoloaps.it | Tel: 123-456-7890</p>
-    </section>
+        <form class="contact-form">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required placeholder="Il tuo nome">
 
-    <footer>
-        <p>© 2025 Il Gomitolo APS | Promuoviamo il benessere dal cuore di Venaria</p>
+            <label for="cognome">Cognome</label>
+            <input type="text" id="cognome" name="cognome" required placeholder="Il tuo cognome">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="La tua email">
+
+            <label for="telefono">Telefono</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="Il tuo numero">
+
+            <label for="messaggio">Messaggio</label>
+            <textarea id="messaggio" name="messaggio" required placeholder="Scrivi il tuo messaggio"></textarea>
+
+            <button type="submit">Invia</button>
+        </form>
+    </section>>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <a class="navbar-brand" href="index.php">IL GOMITOLO PSICOLOGIA</a>
+            </div>
+    
+            <div class="footer-info">
+                <div class="footer-info-block">
+                    <div class="info">
+                        <i class="bi bi-geo-alt"></i>
+                        <p>Via Pietro Trucchi, 25<br>Venaria Reale, TO 10078<br>C.F. 97873680017<br>P. IVA 12592960012</p>
+                    </div>
+                </div>
+                <div class="footer-info-block">
+                    <iframe style="border-radius: 4px" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22522.34279522732!2d7.625795318206036!3d45.12040111228038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47886fb9316a459b%3A0xc86a1a0f1d13211c!2sIl%20Gomitolo%20Psicologia!5e0!3m2!1sit!2sit!4v1647705666905!5m2!1sit!2sit" 
+                        width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="footer-info-block">
+                    <div class="info">
+                        <div>
+                            <i class="bi bi-phone"></i>
+                            <p>+39 3792966184</p>
+                        </div>
+                        <div class="email">
+                            <i class="bi bi-envelope"></i>
+                            <p>info@ilgomitoloaps.it</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="footer-social">
+                <div class="social-links">
+                    <a target="_blank" href="https://www.facebook.com/Il-Gomitolo-Psicologia-105419675382834" class="facebook"><img src="./images/fb.png" alt="Facebook" width="35" height="35"></a>
+                    <a target="_blank" href="https://www.instagram.com/ilgomitolopsicologia/" class="instagram"><img src="./images/ig2.png" alt="Instagram" width="35" height="35"></a>
+                </div>
+            </div>
+
+            <p>© Copyrights ilGomitolo. All rights reserved.</p>
+        </div>
     </footer>
 
-    <script>
-        // Smooth Scroll per la navigazione
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Animazione su scroll per le card
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            document.querySelectorAll('.service-card').forEach(card => {
-                const cardPos = card.getBoundingClientRect().top;
-                if (cardPos < window.innerHeight - 100) {
-                    card.style.opacity = '1';
-                    card.style.transform = 'rotate(0deg) translateY(0)';
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(50px)';
-                }
-            });
-        });
-
-        // Inizializzazione opacità card
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transition = 'opacity 0.5s, transform 0.5s';
-        });
-
-        // Interattività del gomitolo (es. cambia dimensione al click)
-        const gomitolo = document.querySelector('.gomitolo');
-        gomitolo.addEventListener('click', () => {
-            gomitolo.style.transition = 'transform 0.5s';
-            gomitolo.style.transform = 'translateX(-50%) scale(1.2)';
-            setTimeout(() => {
-                gomitolo.style.transform = 'translateX(-50%) scale(1)';
-            }, 500);
-        });
-    </script>
+    <script src="./script/main.js"></script>
 </body>
 </html>
